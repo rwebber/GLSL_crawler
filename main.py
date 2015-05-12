@@ -82,6 +82,9 @@ def glslsandbox(start_url, max_num) :
             webdata = '{code: "// item not found", user: false, parent: "BAD2"}'
             webdata = json.loads(webdata)
 
+        # addtional Hacks to fix 'errors' from glsl_parser , these error types still contain running GLSL code,
+        # so I am continuing.
+
         try:
             source_user = str(webdata['user'])
         except:
@@ -135,6 +138,9 @@ def save_code(code, id, parentID, url) :
     # sandbox_license_type_pageID_parent.glsl
     filename = "sandbox_"
     lcode = code.lower()
+
+    # add code to auto insert Isadora GLSL variable headers into Commercial use friendly scripts
+
     if "license" in lcode:
         filename += "Licensed_"
     if "Creative Commons".lower() in lcode or "CreativeCommons".lower() in lcode \
@@ -172,7 +178,11 @@ def save_code(code, id, parentID, url) :
 
 if __name__ == '__main__' :
     """ sudo code
+    implement glsl_crawl, to route logic for differenet source sites.
     """
+
+    # quick hack to run code as is for glslSandbox , note 2nd param is the max number of ID, it counts down.
+    # just change the MAX ID, and run script as is.
     print "--start"
     glslsandbox(glslsandbox_url, 16630)
     print "\n--end"

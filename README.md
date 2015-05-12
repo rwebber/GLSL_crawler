@@ -1,5 +1,8 @@
 # GLSL_crawler
-Collect and label GLSL files from popular online repositories.
+Collect and label GLSL files from popular online repositories. 
+> currently a bit of a HACK 
 
--Labelling is done by parsing the file looking for keywords that define the applied license.
--Always refer to the downloaded Script for license information before use.
+* Labelling is done by parsing the file looking for keywords that define the applied license.
+* Basic checking of GLSL script is done using glsl_parser.py
+
+### Always refer to the downloaded Script for license information before use.
